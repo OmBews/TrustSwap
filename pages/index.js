@@ -22,23 +22,8 @@ const App = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Next.js Multi Step Form</title>
+        <title>Create a cryptocurrency</title>
       </Head>
-      <h1>Formik Multi Step Form</h1>
-
-      <FormCard currentStep={formStep} prevFormStep={prevFormStep}>
-        {formStep >= 0 && (
-          <PersonalInfo formStep={formStep} nextFormStep={nextFormStep} />
-        )}
-        {formStep >= 1 && (
-          <BillingInfo formStep={formStep} nextFormStep={nextFormStep} />
-        )}
-        {formStep >= 2 && (
-          <ConfirmPurchase formStep={formStep} nextFormStep={nextFormStep} />
-        )}
-
-        {formStep > 2 && <FormCompleted />}
-      </FormCard>
     </div>
   );
 };
