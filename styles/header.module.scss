@@ -1,0 +1,114 @@
+.HeaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: transparent;
+  padding: 17.5px 0 15px;
+  border-bottom: 1px solid #38313b;
+  box-sizing: border-box;
+  z-index: 999;
+  transition: all 0.25s ease-in;
+  background: #fff;
+  border-color: #f6f6f8;
+  .innerContainer {
+    max-width: 1280px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-left: 58px;
+    padding-right: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .Header_logoLink {
+      margin: 0;
+      padding: 0;
+      width: 137.5px;
+    }
+    .Header_fullNav {
+      display: flex;
+      width: 100%;
+      padding-left: 25px;
+      flex-shrink: 2;
+    }
+    .Button_button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      appearance: none;
+      background: none;
+      line-height: 100%;
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+      border: none;
+      color: #2f2f2f;
+      cursor: pointer;
+      transition: opacity 0.15s ease-in;
+      font-family: Inter, sans-serif;
+    }
+    .Header_backButton {
+      font-family: Inter, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2.33;
+      letter-spacing: normal;
+      text-align: left;
+      color: #271d25;
+    }
+    .Button_button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      appearance: none;
+      background: none;
+      line-height: 100%;
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+      border: none;
+      color: #2f2f2f;
+      cursor: pointer;
+      transition: opacity 0.15s ease-in;
+      font-family: Inter, sans-serif;
+    }
+    .Button_buttonCompact {
+      padding: 13px 11px;
+      font-size: 13.3px;
+      letter-spacing: 0.33px;
+      border-radius: 5px;
+      line-height: 10.5px;
+    }
+
+    .Button_icon {
+      display: inline-block;
+      line-height: 0;
+      width: 12px;
+      height: 12px;
+      margin-left: 7px;
+    }
+    .Button_buttonOutline {
+      border: 1px solid;
+      background: none;
+    }
+
+    .Header_button {
+      flex-shrink: 0;
+    }
+
+    .Button_buttonOutline.Button_buttonCompact {
+      padding: 12px 10px;
+    }
+
+    .Button_iconAlignStart {
+      margin-left: 0;
+      margin-right: 7px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.popup {
+  .borderBottom {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .popupHeader {
+    padding: 11px 16px;
+    color: rgba(0, 0, 0, 0.85);
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 2px 2px 0 0;
+    .title {
+      font-family: Inter, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0;
+      color: rgba(0, 0, 0, 0.85);
+
+      line-height: 22px;
+      word-wrap: break-word;
+    }
+  }
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+    span {
+      display: block;
+      width: 44px;
+      height: 44px;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 44px;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+    }
+  }
+}
