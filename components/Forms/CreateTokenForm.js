@@ -10,23 +10,31 @@ import { Tokenomics } from "./FormSteps/Tokenomics";
 import { TransactionFee } from "./FormSteps/TransactionFee";
 
 const initialValues = {
-  userName: "",
-  firstname: "",
-  lastname: "",
-  country: "",
-  email: "",
+  tokenName: "",
+  symbol: "",
+  decimals: 0,
+  description: "",
+  website: "",
+  twitter: "",
+  telegram: "",
+  file: "",
+  initialSupply: 1,
+  hasTransactionFee: false,
+  hasMintFunction: false,
+  hasBurnFunction: false,
+  taxPercent: 1,
 };
 
 function _renderStepContent(step, formik) {
   switch (step) {
     case 0:
-      return <BasicInfo />;
+      return <BasicInfo formik={formik} />;
     case 1:
-      return <Tokenomics />;
+      return <Tokenomics formik={formik} />;
     case 2:
-      return <AddFeatucres />;
+      return <AddFeatucres formik={formik} />;
     case 3:
-      return <TransactionFee />;
+      return <TransactionFee formik={formik} />;
     default:
       return <div>Not Found</div>;
   }
@@ -38,10 +46,36 @@ const CreateTokenForm = () => {
   const [activeStep, setStep] = useState(0);
 
   const validationSchema = Yup.object({
-    userName: Yup.string().required("Username is required"),
-    firstname: Yup.string().required("first name is required"),
-    lastname: Yup.string().required("last name is required"),
-    country: Yup.string().required("country is required"),
+    tokenName: Yup.string().required("This Field is required"),
+    symbol: Yup.string().required("This Field is required"),
+    decimals: Yup.number()
+      .max(18, "18 is the maximum")
+      .min(8, "8 is the minimum")
+      .required("This Field is required"),
+    description: Yup.string().required("This Field is required"),
+    website: Yup.string().matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Enter correct url!"
+    ),
+    twitter: Yup.string().matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Enter correct url!"
+    ),
+    telegram: Yup.string().matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Enter correct url!"
+    ),
+    file: Yup.mixed(),
+    initialSupply: Yup.number()
+      .min(1, "1 is the minimum")
+      .required("This Field is required"),
+    hasTransactionFee: Yup.boolean(),
+    hasMintFunction: Yup.boolean(),
+    hasBurnFunction: Yup.boolean(),
+    taxPercent: Yup.number()
+      .min(1, "1 is the minimum")
+      .required("This Field is required"),
+
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -57,6 +91,7 @@ const CreateTokenForm = () => {
   });
   return (
     <div className={formStyle.formContainer}>
+      {/* steps */}
       <ul className={formStyle.CreateCoinNav_container}>
         {steps.map((stp, index) => (
           <li
@@ -83,8 +118,10 @@ const CreateTokenForm = () => {
       <div
         className={`${formStyle.CreateCoinStep_container} ${formStyle.CreateCoinForm_step}`}
       >
+        {/* form */}
         {_renderStepContent(activeStep, formik)}
 
+        {/* submit button */}
         <div className={formStyle.CreateCoinStep_actions}>
           {activeStep != 0 && (
             <button
@@ -111,7 +148,7 @@ const CreateTokenForm = () => {
             </button>
           )}
           <button
-            onClick={() => setStep((current) => current + 1)}
+            onClick={() => setStep((current) => ++current)}
             className={`${formStyle.Button_button} ${formStyle.Button_buttonPrimary} ${formStyle.Button_buttonGreen}`}
           >
             <span>Continue</span>

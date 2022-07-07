@@ -171,3 +171,273 @@
   border: 1px solid;
   background: none;
 }
+.CreateCoinStep_heading,
+.CreateCoinStep_text__y8iGw {
+  font-family: Inter, sans-serif;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+.CreateCoinStep_heading {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #271d25;
+  margin: 0;
+}
+.CreateCoinStep_form {
+  margin-top: 23px;
+}
+.CreateCoinStep_text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #858585;
+  margin: 13px 0 0;
+}
+.Field_labelWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Form_field:not(:first-child) {
+  margin-top: 12px;
+}
+.Field_label {
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+  color: #271d25;
+  margin-bottom: 7px;
+}
+.TextInput_container {
+  border-radius: 7.5px;
+  border: 0.5px solid #ebebeb;
+  padding: 10px 15px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.TextInput_container,
+.TextInput_container input {
+  color: #2f2f2f;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 12px;
+  letter-spacing: normal;
+  text-align: left;
+  background: #fff;
+  flex-grow: 1;
+  text-overflow: ellipsis;
+}
+.TextInput_notAllowed,
+.TextInput_notAllowed input {
+  color: #2f2f2f !important;
+}
+.TextInput_notAllowed input {
+  background: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.TextInput_notAllowed {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 1;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 12px;
+  line-height: 1.66667;
+  background-color: #fff;
+  background-image: none;
+
+  transition: all 0.3s;
+  display: inline-flex;
+}
+.input_prefix {
+  margin-right: 4px;
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+.CreateCoinStep_blockchainIcon {
+  max-height: 19px;
+  margin-right: 6px;
+}
+.CreateCoinStep_changeNetworkButton {
+  color: #1ab675;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  line-height: 100%;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease-in;
+  font-family: Inter, sans-serif;
+}
+
+.Field_hint,
+.Field_label {
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+.Field_hint {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.38;
+  color: #adafae;
+  margin-top: 5px;
+}
+.NumberInput_container input {
+  border: 0px;
+  outline: 0px;
+  background-color: transparent;
+  width: 100%;
+}
+.FeatureList_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.FeatureList_option {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.FeatureList_wrapper {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 19px 16px 16px;
+  border-radius: 7.5px;
+  border: 0.5px solid #ebebeb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.25s ease-out;
+  -webkit-animation: FeatureList_option-deselect__2H_uj 0.25s ease-out;
+  animation: FeatureList_option-deselect__2H_uj 0.25s ease-out;
+}
+
+.FeatureList_optionSelected .FeatureList_wrapper {
+  box-shadow: 0 15px 36.5px 0 rgb(0 0 0 / 7%);
+  transition-timing-function: ease-in;
+  -webkit-animation: FeatureList_option-select__27F6y 0.25s ease-in;
+  animation: FeatureList_option-select__27F6y 0.25s ease-in;
+}
+.Feature_container {
+  display: flex;
+  align-items: center;
+}
+.Feature_image {
+  width: 56px;
+}
+.Feature_content {
+  margin-left: 19px;
+}
+.Feature_label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #271d25;
+  margin: 0;
+}
+.Feature_hint {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #858585;
+  margin: 6px 0 0;
+}
+.Feature_hint,
+.Feature_label {
+  font-family: Inter, sans-serif;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+.FeatureList_checkbox {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #d7dadb;
+  transition: all 0.25s ease-out;
+}
+.FeatureList_optionSelected .FeatureList_checkbox {
+  border-color: #15b372;
+  background-color: #15b372;
+  transition-timing-function: ease-in;
+}
+.FeatureList_option:not(:first-child) {
+  margin-top: 14.5px;
+}
+.CreateCoinStep_disclaimer {
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  line-height: 1.38;
+  color: #adafae;
+  margin-top: 5px;
+}
+.CreateCoinStep_features {
+  margin: 20px 0 0 !important;
+  padding: 0 0 20px !important;
+  border-bottom: 0.5px solid #ebebeb;
+}
+.Features_container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.Error_container {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f46969;
+  transition: all 0.25s linear;
+  margin-top: 0;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+}
+.Error_containerVisible {
+  max-height: 100px;
+  opacity: 1;
+  margin-top: 5px;
+  visibility: visible;
+}
