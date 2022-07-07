@@ -67,7 +67,7 @@ const Dropzone = ({
         {value ? (
           <img src={imageBuffer} className="productImage" />
         ) : (
-          <img src="/images/download.png" />
+          <img src="/images/download.png" style={{ width: "50%" }} />
         )}
       </div>
     </div>
