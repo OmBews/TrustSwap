@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import formStyle from "../../styles/FormStyle.module.css";
 
 import * as Yup from "yup";
@@ -23,6 +23,9 @@ const initialValues = {
   hasMintFunction: false,
   hasBurnFunction: false,
   taxPercent: 1,
+  Step1: false,
+  Step2: false,
+  Step3: false,
 };
 
 function _renderStepContent(step, formik) {
@@ -67,21 +70,47 @@ const CreateTokenForm = () => {
     ),
     file: Yup.mixed(),
     initialSupply: Yup.number()
-      .min(1, "1 is the minimum")
-      .required("This Field is required"),
+      .when("Step1", {
+        is: true,
+
+        then: Yup.number().required("This Field is required"),
+      })
+      .min(1, "1 is the minimum"),
+
     hasTransactionFee: Yup.boolean(),
     hasMintFunction: Yup.boolean(),
     hasBurnFunction: Yup.boolean(),
     taxPercent: Yup.number()
-      .min(1, "1 is the minimum")
-      .required("This Field is required"),
+      .when("Step3", {
+        is: true,
 
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
+        then: Yup.number().required("This Field is required"),
+      })
+      .min(1, "1 is the minimum"),
   });
-
+  useEffect(() => {
+    console.log(activeStep);
+    if (activeStep > 0) {
+      formik.setFieldValue("Step1", true);
+    } else {
+      formik.setFieldValue("Step1", false);
+    }
+    if (activeStep > 1) {
+      formik.setFieldValue("Step2", true);
+    } else {
+      formik.setFieldValue("Step2", false);
+    }
+    if (activeStep > 2) {
+      formik.setFieldValue("Step3", true);
+    } else {
+      formik.setFieldValue("Step3", false);
+    }
+    // console.log(formik.values);
+  }, [activeStep]);
   const onSubmit = (data) => {
+    if (activeStep < 3) {
+      setStep((current) => ++current);
+    }
     console.log(data);
   };
   const formik = useFormik({
@@ -148,7 +177,10 @@ const CreateTokenForm = () => {
             </button>
           )}
           <button
-            onClick={() => setStep((current) => ++current)}
+            onClick={() => {
+              formik.submitForm();
+              // setStep((current) => ++current);
+            }}
             className={`${formStyle.Button_button} ${formStyle.Button_buttonPrimary} ${formStyle.Button_buttonGreen}`}
           >
             <span>Continue</span>
