@@ -138,3 +138,51 @@ input[disabled] {
 .ant-input-number-handler-up-inner svg {
   display: inline-block;
 }
+.dropzone {
+  width: 104px;
+  height: 104px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+  vertical-align: top;
+  background-color: #fafafa;
+  border: 1px dashed #d9d9d9;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 12px;
+  font-variant: tabular-nums;
+  line-height: 1.66667;
+  list-style: none;
+  font-feature-settings: "tnum";
+  outline: 0;
+}
+.dropzone:hover {
+  border-color: #1890ff;
+}
+
+.dropzone .inner-dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.dropzone .inner-dropzone img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}

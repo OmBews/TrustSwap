@@ -68,7 +68,7 @@ const CreateTokenForm = () => {
       /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
       "Enter correct url!"
     ),
-    file: Yup.mixed(),
+    file: Yup.mixed().required("This Field is required"),
     initialSupply: Yup.number()
       .when("Step1", {
         is: true,

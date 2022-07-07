@@ -1,6 +1,7 @@
 import formStyle from "../../../styles/FormStyle.module.css";
 import { NumberField } from "../../Input/NumberField";
 import { TextField } from "../../Input/TextField";
+import { Dropzone } from "../../../utils/Dropzone";
 
 const BasicInfo = ({ formik }) => {
   return (
@@ -66,7 +67,26 @@ const BasicInfo = ({ formik }) => {
         />
 
         {/* image dropzone */}
-
+        <span className={formStyle.Field_labelWrapper}>
+          <label htmlFor="blockchain" className={formStyle.Field_label}>
+            Coin Image
+          </label>
+        </span>
+        <Dropzone
+          value={formik.values.file}
+          setValue={(value) => formik.setFieldValue("file", value)}
+          maxSize={40 * 1024 * 1024}
+          accept={["image/jpeg", "image/png"]}
+        />
+        <div
+          className={`${formStyle.Error_container} ${
+            formik.touched.file && formik.errors.file
+              ? formStyle.Error_containerVisible
+              : ""
+          }`}
+        >
+          {formik.errors.file}
+        </div>
         <NumberField
           label="Decimals"
           name="decimals"
