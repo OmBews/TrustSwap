@@ -95,20 +95,26 @@ const TransactionFee = ({ formik }) => {
             formik.errors.walletToReceiveFunds
           }
         />
-        <TextField
-          type="date"
-          placeholder={"Wallet to Receive Funds"}
-          hint={"Monday,Februrary 13,2021"}
-          {...formik.getFieldProps("preSaleOpening")}
-          error={formik.touched.preSaleOpening && formik.errors.preSaleOpening}
-        />
-        <TextField
-          type="date"
-          placeholder={"Wallet to Receive Funds"}
-          hint={"Monday,Februrary 23,2021"}
-          {...formik.getFieldProps("preSaleClosing")}
-          error={formik.touched.preSaleClosing && formik.errors.preSaleClosing}
-        />
+        <div className={formStyle.dateRange_container}>
+          <TextField
+            type="date"
+            placeholder={"Wallet to Receive Funds"}
+            hint={"Monday,Februrary 13,2021"}
+            {...formik.getFieldProps("preSaleOpening")}
+            error={
+              formik.touched.preSaleOpening && formik.errors.preSaleOpening
+            }
+          />
+          <TextField
+            type="date"
+            placeholder={"Wallet to Receive Funds"}
+            hint={"Monday,Februrary 23,2021"}
+            {...formik.getFieldProps("preSaleClosing")}
+            error={
+              formik.touched.preSaleClosing && formik.errors.preSaleClosing
+            }
+          />
+        </div>
         {/* <BasicDatePicker
           name={"preSaleDate"}
           error={formik.touched.taxPercent && formik.errors.taxPercent}

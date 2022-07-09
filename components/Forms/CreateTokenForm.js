@@ -8,6 +8,7 @@ import { AddFeatucres } from "./FormSteps/AddFeatures";
 import { BasicInfo } from "./FormSteps/BasicInfo";
 import { Tokenomics } from "./FormSteps/Tokenomics";
 import { TransactionFee } from "./FormSteps/TransactionFee";
+import Lockup from "./FormSteps/Lock";
 const now = new Date();
 const initialValues = {
   tokenName: "",
@@ -28,10 +29,13 @@ const initialValues = {
   walletToReceiveFunds: "",
   preSaleOpening: now,
   preSaleClosing: now,
-  taxPercent: 1,
+  lockupAmmount: 10000,
+  unlockTime: 1,
+  unlockTimePeriod: "Days",
   Step1: false,
   Step2: false,
   Step3: false,
+  Step4: false,
 };
 
 function _renderStepContent(step, formik) {
@@ -44,6 +48,8 @@ function _renderStepContent(step, formik) {
       return <AddFeatucres formik={formik} />;
     case 3:
       return <TransactionFee formik={formik} />;
+    case 4:
+      return <Lockup formik={formik} />;
     default:
       return <div>Not Found</div>;
   }
@@ -96,14 +102,30 @@ const CreateTokenForm = () => {
     preSaleOpening: Yup.date().when("Step3", {
       is: true,
 
-      then: Yup.date(),
+      then: Yup.date().required("This Field is required"),
     }),
 
-    preSaleClosing: Yup.date().when("Step3", {
-      is: true,
+    preSaleClosing: Yup.date()
+      .when("Step3", {
+        is: true,
 
-      then: Yup.date(),
-    }),
+        then: Yup.date(),
+      })
+      .required("This Field is required"),
+    unlockTimePeriod: Yup.string()
+      .when("Step3", {
+        is: true,
+
+        then: Yup.string(),
+      })
+      .required("This Field is required"),
+    unlockTime: Yup.number()
+      .when("Step3", {
+        is: true,
+
+        then: Yup.number(),
+      })
+      .required("This Field is required"),
   });
   useEffect(() => {
     console.log(activeStep);
@@ -121,6 +143,11 @@ const CreateTokenForm = () => {
       formik.setFieldValue("Step3", true);
     } else {
       formik.setFieldValue("Step3", false);
+    }
+    if (activeStep > 3) {
+      formik.setFieldValue("Step4", true);
+    } else {
+      formik.setFieldValue("Step4", false);
     }
     // console.log(formik.values);
   }, [activeStep]);

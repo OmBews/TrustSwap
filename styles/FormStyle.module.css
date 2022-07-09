@@ -441,3 +441,44 @@
   margin-top: 5px;
   visibility: visible;
 }
+.range {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 5px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  border-radius: 10px;
+  background: #1ab675; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+.range::-webkit-progress-value {
+  -webkit-appearance: none;
+  background-color: #1ab675;
+  margin-top: -1px;
+}
+.lockTable {
+  width: 100%;
+}
+.lockTable th {
+  text-align: right;
+}
+.lockTable td {
+}
+.dateRange_container {
+  display: flex;
+  gap: 20px;
+}
+.dateRange_container .Form_field {
+  margin-top: 12px !important;
+  flex-grow: 1;
+}
