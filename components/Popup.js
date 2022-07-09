@@ -1,5 +1,5 @@
 import { Modal } from "react-bootstrap";
-import style from "../styles/popup.scss";
+import style from "../styles/popup.module.scss";
 
 const Popup = ({
   isOpen,

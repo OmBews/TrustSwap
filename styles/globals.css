@@ -186,3 +186,6 @@ input[disabled] {
   -o-object-fit: contain;
   object-fit: contain;
 }
+.li-mt li:not(:first-child) {
+  margin-top: 10px;
+}

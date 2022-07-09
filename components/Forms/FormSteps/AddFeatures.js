@@ -23,8 +23,8 @@ const AddFeatucres = ({ formik }) => {
                 "hasTransactionFee",
                 !formik.values.hasTransactionFee
               );
-              formik.setFieldValue("hasMintFunction", false);
-              formik.setFieldValue("hasBurnFunction", false);
+              // formik.setFieldValue("hasMintFunction", false);
+              // formik.setFieldValue("hasBurnFunction", false);
             }}
             value={formik.values.hasTransactionFee}
           />
@@ -35,7 +35,7 @@ const AddFeatucres = ({ formik }) => {
             hint="Add the ability to mint additional tokens."
             value={formik.values.hasMintFunction}
             onClick={() => {
-              formik.setFieldValue("hasTransactionFee", false);
+              // formik.setFieldValue("hasTransactionFee", false);
               formik.setFieldValue(
                 "hasMintFunction",
                 !formik.values.hasMintFunction
@@ -49,7 +49,7 @@ const AddFeatucres = ({ formik }) => {
             hint="Add the ability to burn your tokens. This is great for creating deflation."
             value={formik.values.hasBurnFunction}
             onClick={() => {
-              formik.setFieldValue("hasTransactionFee", false);
+              // formik.setFieldValue("hasTransactionFee", false);
               formik.setFieldValue(
                 "hasBurnFunction",
                 !formik.values.hasBurnFunction

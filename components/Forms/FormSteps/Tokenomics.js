@@ -34,13 +34,12 @@ const Tokenomics = ({ formik }) => {
           {...formik.getFieldProps("initialSupply")}
           error={formik.touched.initialSupply && formik.errors.initialSupply}
         />
-        <TextField
+        <NumberField
           label="Maximum Supply *"
-          name="initialSupply"
-          disabled={true}
+          name="maximumSupply"
           hint={"Insert the maximum number of tokens available."}
           placeholder="e.g. “TrustSwap”"
-          {...formik.getFieldProps("initialSupply")}
+          {...formik.getFieldProps("maximumSupply")}
         />
 
         <TextField

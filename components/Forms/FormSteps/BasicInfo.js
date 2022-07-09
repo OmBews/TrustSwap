@@ -13,7 +13,7 @@ const BasicInfo = ({ formik }) => {
         Tell us the basics about the token you are building.
       </p>
       <form className={formStyle.CreateCoinStep_form}>
-        <div className={`field ${formStyle.Form_field}`}>
+        {/* <div className={`field ${formStyle.Form_field}`}>
           <span className={formStyle.Field_labelWrapper}>
             <label htmlFor="blockchain" className={formStyle.Field_label}>
               Blockchain
@@ -46,7 +46,7 @@ const BasicInfo = ({ formik }) => {
           <div className={formStyle.Field_hint}>
             Current Metamask network connected
           </div>
-        </div>
+        </div> */}
 
         <TextField
           label="Token Name"
@@ -65,28 +65,29 @@ const BasicInfo = ({ formik }) => {
           {...formik.getFieldProps("symbol")}
           error={formik.touched.symbol && formik.errors.symbol}
         />
-
-        {/* image dropzone */}
-        <span className={formStyle.Field_labelWrapper}>
-          <label htmlFor="blockchain" className={formStyle.Field_label}>
-            Coin Image
-          </label>
-        </span>
-        <Dropzone
-          value={formik.values.file}
-          setValue={(value) => formik.setFieldValue("file", value)}
-          maxSize={40 * 1024 * 1024}
-          accept={["image/jpeg", "image/png"]}
-        />
-        <div
-          className={`${formStyle.Error_container} ${
-            formik.touched.file && formik.errors.file
-              ? formStyle.Error_containerVisible
-              : ""
-          }`}
-        >
-          {formik.errors.file}
-        </div>
+        {/* 
+       
+          <span className={formStyle.Field_labelWrapper}>
+            <label htmlFor="blockchain" className={formStyle.Field_label}>
+              Coin Image
+            </label>
+          </span>
+          <Dropzone
+            value={formik.values.file}
+            setValue={(value) => formik.setFieldValue("file", value)}
+            maxSize={40 * 1024 * 1024}
+            accept={["image/jpeg", "image/png"]}
+          />
+          <div
+            className={`${formStyle.Error_container} ${
+              formik.touched.file && formik.errors.file
+                ? formStyle.Error_containerVisible
+                : ""
+            }`}
+          >
+            {formik.errors.file}
+          </div> 
+        */}
         <NumberField
           label="Decimals"
           name="decimals"
@@ -110,6 +111,8 @@ const BasicInfo = ({ formik }) => {
           {...formik.getFieldProps("description")}
           error={formik.touched.description && formik.errors.description}
         />
+
+        {/*         
         <TextField
           label="Website (Optional)"
           name="website"
@@ -133,7 +136,7 @@ const BasicInfo = ({ formik }) => {
           placeholder="https://t.me/TrustSwap"
           {...formik.getFieldProps("telegram")}
           error={formik.touched.telegram && formik.errors.telegram}
-        />
+        /> */}
       </form>
     </div>
   );

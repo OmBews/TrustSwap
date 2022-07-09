@@ -8,7 +8,7 @@ import { AddFeatucres } from "./FormSteps/AddFeatures";
 import { BasicInfo } from "./FormSteps/BasicInfo";
 import { Tokenomics } from "./FormSteps/Tokenomics";
 import { TransactionFee } from "./FormSteps/TransactionFee";
-
+const now = new Date();
 const initialValues = {
   tokenName: "",
   symbol: "",
@@ -19,9 +19,15 @@ const initialValues = {
   telegram: "",
   file: "",
   initialSupply: 1,
+  maximumSupply: 1,
   hasTransactionFee: false,
   hasMintFunction: false,
   hasBurnFunction: false,
+  softCap: 1,
+  hardCap: 1,
+  walletToReceiveFunds: "",
+  preSaleOpening: now,
+  preSaleClosing: now,
   taxPercent: 1,
   Step1: false,
   Step2: false,
@@ -43,8 +49,15 @@ function _renderStepContent(step, formik) {
   }
 }
 
-const steps = ["Basic Information", "Tokenomics", "Add features", ""];
-
+const steps = [
+  "Basic Information",
+  "Tokenomics",
+  "Add features",
+  "Configure Features",
+  "Token Lockup",
+  "",
+];
+const today = Date.now.toString();
 const CreateTokenForm = () => {
   const [activeStep, setStep] = useState(0);
 
@@ -56,23 +69,16 @@ const CreateTokenForm = () => {
       .min(8, "8 is the minimum")
       .required("This Field is required"),
     description: Yup.string().required("This Field is required"),
-    website: Yup.string().matches(
-      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-      "Enter correct url!"
-    ),
-    twitter: Yup.string().matches(
-      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-      "Enter correct url!"
-    ),
-    telegram: Yup.string().matches(
-      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-      "Enter correct url!"
-    ),
-    file: Yup.mixed().required("This Field is required"),
+
     initialSupply: Yup.number()
       .when("Step1", {
         is: true,
-
+        then: Yup.number().required("This Field is required"),
+      })
+      .min(1, "1 is the minimum"),
+    maximumSupply: Yup.number()
+      .when("Step1", {
+        is: true,
         then: Yup.number().required("This Field is required"),
       })
       .min(1, "1 is the minimum"),
@@ -80,13 +86,24 @@ const CreateTokenForm = () => {
     hasTransactionFee: Yup.boolean(),
     hasMintFunction: Yup.boolean(),
     hasBurnFunction: Yup.boolean(),
-    taxPercent: Yup.number()
-      .when("Step3", {
-        is: true,
 
-        then: Yup.number().required("This Field is required"),
-      })
-      .min(1, "1 is the minimum"),
+    walletToReceiveFunds: Yup.string().when("Step3", {
+      is: true,
+
+      then: Yup.string().required("This Field is required"),
+    }),
+
+    preSaleOpening: Yup.date().when("Step3", {
+      is: true,
+
+      then: Yup.date(),
+    }),
+
+    preSaleClosing: Yup.date().when("Step3", {
+      is: true,
+
+      then: Yup.date(),
+    }),
   });
   useEffect(() => {
     console.log(activeStep);
@@ -108,7 +125,7 @@ const CreateTokenForm = () => {
     // console.log(formik.values);
   }, [activeStep]);
   const onSubmit = (data) => {
-    if (activeStep < 3) {
+    if (activeStep < steps.length) {
       setStep((current) => ++current);
     }
     console.log(data);
